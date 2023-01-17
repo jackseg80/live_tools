@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 #matplotlib.use("Agg")
 import pandas as pd
 
-with open("log/balance_history.txt", "r") as f:
+with open("live_tools/strategies/bol_trend/log/balance_history.txt", "r") as f:
     data = f.read()
 
 lines = data.split("\n")
@@ -48,5 +48,5 @@ plt.annotate(f"{final_balance:.2f}$\n({sign}{percentage_difference:.2f}%)",
 plt.legend()
 plt.title("Balance history")
 
-plt.savefig("live_tools/balance.png", dpi = 150)
+plt.savefig("live_tools/strategies/bol_trend/log/balance.png", dpi = 150)
 #plt.show()

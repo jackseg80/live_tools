@@ -75,10 +75,10 @@ bitget = PerpBitget(
     password=secret[account_to_select]["password"],
 )
 
-# Get data
+# Obtention des data
 df = bitget.get_more_last_historical_async(pair, timeframe, 1000)
 
-# Populate indicator
+# Indicateurs
 df.drop(columns=df.columns.difference(['open','high','low','close','volume']), inplace=True)
 bol_band = ta.volatility.BollingerBands(close=df["close"], window=bol_window, window_dev=bol_std)
 df["lower_band"] = bol_band.bollinger_lband()
@@ -162,5 +162,3 @@ else:
 now = datetime.now()
 current_time = now.strftime("%d/%m/%Y %H:%M:%S")
 print("--- End Time :", current_time, "---")
-
-
