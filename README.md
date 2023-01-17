@@ -1,7 +1,7 @@
-# live_tools
+# live_tools project
 
-Liste des commandes pour set-up le projet: 
+Liste des commandes pour setup le projet: 
 
 > git clone https://github.com/jackseg80/live_tools.git
 
-> bash ./live_tools/install.sh
+> bash ./live_tools/install.sh 
