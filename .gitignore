@@ -1,5 +1,5 @@
 live_tools/secret.json
-secret.json
+!secret.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
