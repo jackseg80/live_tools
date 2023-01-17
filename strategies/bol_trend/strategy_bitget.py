@@ -20,6 +20,7 @@ f = open(
 secret = json.load(f)
 f.close()
 
+# Paramètres à modifier
 account_to_select = "bitget_exemple"
 production = True
 
@@ -33,6 +34,7 @@ bol_std = 2.2
 min_bol_spread = 0
 long_ma_window = 500
 
+# **************************
 def open_long(row):
     if (
         row['n1_close'] < row['n1_higher_band'] 
