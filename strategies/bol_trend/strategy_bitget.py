@@ -91,8 +91,8 @@ usd_balance = float(bitget.get_usdt_equity())
 usd_balance = round(usd_balance,2)
 print("USD balance :", usd_balance, "$")
 
-with open("balance_history.txt", "a") as f:
-    # Write start time and USD balance to file
+with open("./live_tools/strategies/bol_trend/log/balance_history.txt", "a") as f:
+    # Log start time et USD balance
     f.write(f"{current_time};{usd_balance}\n")
 
 positions_data = bitget.get_open_position()

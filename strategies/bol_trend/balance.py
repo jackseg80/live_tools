@@ -1,11 +1,11 @@
 import sys
-sys.path.append('../..')
+#sys.path.append('../..')
 import matplotlib
 import matplotlib.pyplot as plt
 #matplotlib.use("Agg")
 import pandas as pd
 
-with open("live_tools/balance_history.txt", "r") as f:
+with open("log/balance_history.txt", "r") as f:
     data = f.read()
 
 lines = data.split("\n")
