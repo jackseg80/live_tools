@@ -48,5 +48,5 @@ plt.annotate(f"{final_balance:.2f}$\n({sign}{percentage_difference:.2f}%)",
 plt.legend()
 plt.title("Balance history")
 
-plt.savefig("live_tools/balance.png", dpi = 300)
+plt.savefig("live_tools/balance.png", dpi = 150)
 #plt.show()
