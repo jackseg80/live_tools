@@ -1,4 +1,3 @@
-#SEG, V2.1
 import sys
 sys.path.append("./live_tools")
 import ccxt
@@ -12,7 +11,7 @@ import json
 
 now = datetime.now()
 current_time = now.strftime("%d/%m/%Y %H:%M:%S")
-print("--- Start Time :", current_time, "---")
+print("--- Start Execution Time :", current_time, "---")
 
 f = open(
     "./live_tools/secret.json",
@@ -21,15 +20,15 @@ secret = json.load(f)
 f.close()
 
 account_to_select = "bitget_exemple"
-production = True
+production = False
 
 pair = "ETH/USDT:USDT"
 timeframe = "1h"
-leverage = 1.5
+leverage = 0.5
 
 type = ["long", "short"]
-bol_window = 100
-bol_std = 2.2
+bol_window = 110
+bol_std = 2.25
 min_bol_spread = 0
 long_ma_window = 500
 
@@ -38,7 +37,7 @@ def open_long(row):
         row['n1_close'] < row['n1_higher_band'] 
         and (row['close'] > row['higher_band']) 
         and ((row['n1_higher_band'] - row['n1_lower_band']) / row['n1_lower_band'] > min_bol_spread)
-        and (row['close'] > row['long_ma'])
+        (row['close'] > row['long_ma'])
     ):
         return True
     else:
@@ -88,12 +87,7 @@ df['long_ma'] = ta.trend.sma_indicator(close=df['close'], window=long_ma_window)
 df = get_n_columns(df, ["ma_band", "lower_band", "higher_band", "close"], 1)
 
 usd_balance = float(bitget.get_usdt_equity())
-usd_balance = round(usd_balance,2)
-print("USD balance :", usd_balance, "$")
-
-with open("balance_history.txt", "a") as f:
-    # Write start time and USD balance to file
-    f.write(f"{current_time};{usd_balance}\n")
+print("USD balance :", round(usd_balance, 2), "$")
 
 positions_data = bitget.get_open_position()
 position = [
@@ -159,6 +153,6 @@ else:
 
 now = datetime.now()
 current_time = now.strftime("%d/%m/%Y %H:%M:%S")
-print("--- End Time :", current_time, "---")
+print("--- End Execution Time :", current_time, "---")
 
 
